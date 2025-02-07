@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
+:root {
+  --colour-black: black;
+  --colour-white: white;
+  --colour-yellow: #FFE30E;
+  --colour-dark-yellow: #FACF22;
+  --colour-purple: #D7A29B;
+  
+  /* dynamic colours */
+  --colour-body: var(--colour-yellow);
+  --colour-text: black;
+  
+  --heading: 'Yusei Magic', sans-serif;
+  --subheading: "inter", sans-serif;
+  --content: sans-serif;
+  
+  --bold: 800;
+  --semi-bold: 500;
+  --regular: 400;
+
+  --linespace: 1;
+  --padding-xl: 3em;
+  --padding-l: 2.5em;
+  --padding-r: 2em;
+  --padding-m: 1.5em;
+  --padding-s: 1em;
+  --padding-xs: 0.6em;
+  --padding-xxs: 0.2em;
+  
+  --gap-r: 1em;
+  --gap-m: 0.75em;
+  --gap-s: 0.5em;
+  --gap-xs: 0.2em;
+  
+  --shadow: 0 0 10px 1px rgba(0,0,0,0.3);
+  --line: solid 1px var(--colour-text);
+  
+  --round: 100%;
+  
+  /* z-index */
+  --z-cursor: 1000;
+  --z-topbar: 100;
+  --z-sidebar: 101;
+  --z-propop: 102;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+/* ::selection {
+    background-color: var(--colour-black);
+    color: var(--colour-white);
+} */
+
+html {
+  font: var(--regular) 1em/var(--linespace) var(--content);
+  color: var(--colour-text);
+}
+
+p {
+  font: var(--regular) 1.2em/var(--linespace) var(--content);
+}
+
+p span {
+  font: var(--bold) 1em/var(--linespace) var(--content);
+}
+
+.heading-large {
+  font: var(--regular) 2em/var(--linespace) var(--heading);
+  color: var(--colour-text);
+}
+
+.heading-medium {
+  font: var(--regular) 1.625em/var(--linespace) var(--heading);
+}
+.heading-small {
+  font: var(--regular) 1.125em/var(--linespace) var(--heading);
+  color: var(--colour-text);
+}
+.subheading-large {
+  font: var(--regular) 1em/var(--linespace) var(--subheading);
+  color: var(--colour-text);
+}
+.subheading-large span {
+  font: var(--regular) 0.9em/var(--linespace) var(--subheading);
+}
+
+.subheading-medium {
+  font: 700 0.8em/var(--linespace) var(--subheading);
+}
+
+body {
+  background-color: var(--colour-body);
+}
+
+nav {
+  padding: var(--padding-m);
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+}
+
+/* ________________BUTTONS__________________ */
+
+button {
+  appearance: none;
+  border: unset;
+  cursor: pointer;
+}
+button p {
+  display: inline-block;
+}
+
+button.primary {
+  background-color: var(--colour-white);
+  padding: var(--padding-xs) var(--padding-s);
+  border: var(--line);
+  border-radius: 14em;
+}
+
+button.hero {
+  font-size: 1.1em;
+}
+
+a {
+  appearance: none;
+  color: var(--colour-text);
+  text-decoration: unset;
+}
+
+/* ________________LAYOUT TOOLS__________________ */
+
+.item-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-r);
+}
+.item-row.center-vertical {
+  align-items: center;
+}
+.item-row.center-horiztonal {
+  justify-content: center;
+}
+.item-row.no-gap {
+  gap: 0;
+}
+.item-row.small-gap {
+  gap: var(--gap-s);
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-r);
+}
+.item-list.center-vertical {
+  justify-content: center;
+}
+.item-list.center-horiztonal {
+  align-items: center;
+}
+.item-list.no-gap {
+  gap: 0;
+}
+.item-list.small-gap {
+  gap: var(--gap-s);
+}
+
+.two-pane {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  border-bottom: var(--line);
+}
+
+/* ________________SECTION HEADER__________________ */
+
+.dark-bg {
+  background-color: var(--colour-dark-yellow);
+}
+
+.logo img {
+  width: 3.4em;
+}
+.logo img.logo-text {
+  width: 7em;
+}
+
+.divider-banner {
+  border-top: var(--line);
+  border-bottom: var(--line);
+  padding: 1px 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100vw;
+}
+.divider-banner.top-banner {
+  border-top: 0;
+}
+.divider-banner .divider-inner {
+  background-color: var(--colour-white);
+  border-top: var(--line);
+  border-bottom: var(--line);
+  padding: var(--padding-xxs) var(--padding-s);
+  border-width: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-s);
+  min-width: 100%;
+  flex-shrink: 0;
+}
+.divider-banner .banner-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(var(--gap-s), 2vw, 2rem);
+}
+.divider-banner [data-icon="heart"] {
+  height: 0.6em;
+}
+.divider-banner [data-icon="logo"] {
+  height: 0.4em;
+}
+.divider-banner [data-icon="fork"] {
+  height: 0.4em;
+}
+
+.hero-image {
+  display: grid;
+  min-height: 0;
+  background-image: url('img/hero.jpg');
+  background-position: left;
+  background-size: cover;
+  border-left: var(--line);
+}
+
+.nav-icon {
+  width: 2.1em;
+}
+
+/* ________________SECTION HEADER__________________ */
+
+
+@media screen and (min-width: 70em) {
+    
+}
+
