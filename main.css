@@ -93,10 +93,14 @@ html {
 
 body {
   background-color: var(--colour-body);
+  /* background-image: url('img/logo.png');
+  background-repeat: repeat;
+  background-size: 17em 17em;
+  background-blend-mode: soft-light; */
 }
 
 main {
-  max-width: 65em;
+  max-width: 76rem;
   margin: 0 auto;
   border-left: var(--line);
   border-right: var(--line);
@@ -272,6 +276,10 @@ a {
   margin: 0 calc(var(--padding-s) * -1);
   min-height: 100vh;
 }
+.menu-images canvas {
+  max-width: 46rem;
+  width: 100%;
+}
 
 canvas {
   border-radius: 1em;
@@ -280,7 +288,9 @@ canvas {
 /* ________________SECTION HEADER__________________ */
 
 
-@media screen and (min-width: 70em) {
-    
+@media screen and (min-width: 54em) {
+  html {
+    font-size: 1.2em;
+  }
 }
 
