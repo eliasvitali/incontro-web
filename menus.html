@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <nav>
-      <div class="logo item-row center-vertical">
+    <nav aria-label="primary">
+      <a href="index.html" class="logo item-row center-vertical">
         <img src="img/logo.png" alt="two people greeting each other" />
         <img class="logo-text" src="img/logo-text.svg" />
-      </div>
+      </a>
       <button class="primary hero">
         <p class="subheading-large">Reserve</p>
       </button>
@@ -62,9 +62,21 @@
         <img data-icon="fork" src="img/fork-left.svg" />
       </div>
     </div>
-    <main>
-      <p>menu</p>
+    <main class="padding item-list">
+      <p class="heading-medium">Menus</p>
+      <div class="item-row small-gap toggle-buttons" id="menus-toggle-group">
+        <input type="radio" id="main" name="menus-selector" value="main" checked>
+        <label for="main">
+          <p class="body">Main</p>
+        </label>
+        <input type="radio" id="togo" name="menus-selector" value="togo">
+        <label for="togo">
+          <p class="body">To Go</p>
+        </label>
+      </div>
+      <div class="menu-images item-list small-gap" id="menu-images">
+      </div>
     </main>
-    <script src="main.js" charset="utf-8"></script>
+    <script src="menus.js" type="module" charset="utf-8"></script>
   </body>
 </html>

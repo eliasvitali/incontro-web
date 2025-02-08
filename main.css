@@ -54,21 +54,16 @@
   font-smoothing: antialiased;
 }
 
-/* ::selection {
-    background-color: var(--colour-black);
-    color: var(--colour-white);
-} */
-
 html {
   font: var(--regular) 1em/var(--linespace) var(--content);
   color: var(--colour-text);
 }
 
-p {
-  font: var(--regular) 1.2em/var(--linespace) var(--content);
+.body {
+  font: var(--regular) 1em/var(--linespace) var(--content);
 }
 
-p span {
+.body span {
   font: var(--bold) 1em/var(--linespace) var(--content);
 }
 
@@ -100,7 +95,14 @@ body {
   background-color: var(--colour-body);
 }
 
-nav {
+main {
+  max-width: 65em;
+  margin: 0 auto;
+  border-left: var(--line);
+  border-right: var(--line);
+}
+
+nav[aria-label="primary"] {
   padding: var(--padding-m);
   display: grid;
   grid-template-columns: auto max-content;
@@ -122,11 +124,25 @@ button.primary {
   background-color: var(--colour-white);
   padding: var(--padding-xs) var(--padding-s);
   border: var(--line);
-  border-radius: 14em;
+  border-radius: 2em;
 }
 
 button.hero {
   font-size: 1.1em;
+}
+
+.toggle-buttons input[type="radio"] {
+  display: none;
+}
+.toggle-buttons label {
+  background-color: transparent;
+  padding: var(--padding-xs) var(--padding-s);
+  border: var(--line);
+  border-radius: 2em;
+  cursor: pointer;
+}
+.toggle-buttons input[type="radio"]:checked + label {
+  background-color: var(--colour-white);
 }
 
 a {
@@ -179,6 +195,10 @@ a {
   border-bottom: var(--line);
 }
 
+.padding {
+  padding: var(--padding-r);
+}
+
 /* ________________SECTION HEADER__________________ */
 
 .dark-bg {
@@ -199,7 +219,7 @@ a {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
 }
 .divider-banner.top-banner {
   border-top: 0;
@@ -246,6 +266,15 @@ a {
 
 .nav-icon {
   width: 2.1em;
+}
+
+.menu-images {
+  margin: 0 calc(var(--padding-s) * -1);
+  min-height: 100vh;
+}
+
+canvas {
+  border-radius: 1em;
 }
 
 /* ________________SECTION HEADER__________________ */
