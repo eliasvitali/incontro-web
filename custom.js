@@ -7,6 +7,9 @@ const menuImagesContainer = document.getElementById('menu-images');
 const menuToggleGroup = document.getElementById("menus-toggle-group");
 const menuRadioInputs = document.getElementsByName("menus-selector");
 
+//populated from functions.php
+const rootDir = themeData.themeUrl;
+
 //on page load
 document.addEventListener("DOMContentLoaded", () => {
   const menuSelection = document.querySelector('input[name="menus-selector"]:checked')?.value;
@@ -21,8 +24,8 @@ document.getElementById("menus-toggle-group").addEventListener("change", (event)
 });
 
 const setMenuPDF = (key) => {
-  if (key === 'main') displayPDF('img/menus/herbstkarte2024.pdf');
-  else if (key === 'togo') displayPDF('img/menus/kartetogo2021.pdf');
+  if (key === 'main') displayPDF(`${rootDir}/pdf/menus/herbstkarte2024.pdf`);
+  else if (key === 'togo') displayPDF(`${rootDir}/pdf/menus/kartetogo2021.pdf`);
 }
 
 const disableMenuToggles = (disable) => {

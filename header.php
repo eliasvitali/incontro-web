@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
-    <title>l'incontro</title>
     <?php wp_head(); ?>
   </head>
+  
   <body <?php body_class(); ?>>
     
   <header>
@@ -62,4 +61,4 @@
         <img data-icon="fork" src="<?php echo get_template_directory_uri(); ?>/img/fork-left.svg" />
       </div>
     </div>
-  </header
+  </header>

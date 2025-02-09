@@ -14,6 +14,6 @@ get_header();
       <p class="body">To Go</p>
     </label>
   </div>
-  <div class="menu-images item-list small-gap" id="menu-images"></div>
+  <div class="menu-images item-list small-gap center-horizontal" id="menu-images"></div>
 </main>
 <?php get_footer(); ?>

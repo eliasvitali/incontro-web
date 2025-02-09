@@ -91,6 +91,13 @@ html {
   font: 700 0.8em/var(--linespace) var(--subheading);
 }
 
+.center {
+  text-align: center;
+}
+.secondary {
+  opacity: 0.6;
+}
+
 body {
   background-color: var(--colour-body);
   /* background-image: url('img/logo.png');
@@ -165,7 +172,7 @@ a {
 .item-row.center-vertical {
   align-items: center;
 }
-.item-row.center-horiztonal {
+.item-row.center-horizontal {
   justify-content: center;
 }
 .item-row.no-gap {
@@ -183,7 +190,7 @@ a {
 .item-list.center-vertical {
   justify-content: center;
 }
-.item-list.center-horiztonal {
+.item-list.center-horizontal {
   align-items: center;
 }
 .item-list.no-gap {
