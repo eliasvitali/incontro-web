@@ -52,6 +52,13 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  
+  scrollbar-color: rgba(0,0,0,0.5) var(--colour-dark-yellow);
+}
+
+* > * {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.5) transparent;
 }
 
 html {
@@ -97,6 +104,9 @@ html {
 .secondary {
   opacity: 0.6;
 }
+.weight-light {
+  font-weight: var(--regular);
+}
 
 body {
   background-color: var(--colour-body);
@@ -109,8 +119,6 @@ body {
 main {
   max-width: 76rem;
   margin: 0 auto;
-  border-left: var(--line);
-  border-right: var(--line);
 }
 
 nav[aria-label="primary"] {
@@ -118,6 +126,10 @@ nav[aria-label="primary"] {
   display: grid;
   grid-template-columns: auto max-content;
   align-items: center;
+}
+
+nav[aria-label="primary"] a {
+  justify-self: flex-start;
 }
 
 /* ________________BUTTONS__________________ */
@@ -154,6 +166,13 @@ button.hero {
 }
 .toggle-buttons input[type="radio"]:checked + label {
   background-color: var(--colour-white);
+}
+
+.toggle-buttons.center {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 a {
@@ -208,6 +227,13 @@ a {
 
 .padding {
   padding: var(--padding-r);
+}
+.escape-padding {
+  margin: 0 calc(var(--padding-r) * -1);
+  display: grid;
+}
+.escape-padding.center {
+  justify-content: center;
 }
 
 /* ________________SECTION HEADER__________________ */
@@ -280,7 +306,6 @@ a {
 }
 
 .menu-images {
-  margin: 0 calc(var(--padding-s) * -1);
   min-height: 100vh;
 }
 .menu-images canvas {
@@ -292,12 +317,42 @@ canvas {
   border-radius: 1em;
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-s);
+}
+.gallery img {
+  border-radius: 1em;
+  width: 100%;
+}
+
 /* ________________SECTION HEADER__________________ */
 
-
-@media screen and (min-width: 54em) {
-  html {
-    font-size: 1.2em;
+@media screen and (max-width: 38rem) {
+  .padding {
+    padding: var(--padding-s);
+  }
+  .escape-padding {
+    margin: 0 calc(var(--padding-s) * -1);
   }
 }
 
+@media screen and (min-width: 54rem) {
+  html {
+    font-size: 1.2em;
+  }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 76rem) {
+  main {
+    /* border-left: var(--line);
+    border-right: var(--line); */
+  }
+  .gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

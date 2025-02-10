@@ -1,15 +1,5 @@
 <?php
 
-function my_global_vars_inline_script() {
-  $script = 'window.themeData = { themeUrl: "' . get_template_directory_uri() . '" };';
-
-  echo wp_print_inline_script_tag($script, [
-    'id'   => 'global-vars-inline',
-    'type' => 'module' // Optional, but you can keep it if needed
-  ]);
-}
-add_action('wp_head', 'my_global_vars_inline_script');
-
 // Enqueue Styles and Scripts
 function my_custom_assets() {
   // Enqueue the stylesheet
@@ -17,10 +7,40 @@ function my_custom_assets() {
 
   // Enqueue custom JS file (if you have one)
   if (is_page_template('template-menus.php')) {
-    $script_handle = 'custom-menu-js';
 
-    // Enqueue the module script
-    wp_enqueue_script_module($script_handle, get_template_directory_uri() . '/js/custom.js');
+    //handle pdfjs stuff
+    wp_enqueue_script( 'pdfjs', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', array(), null, true );
+    wp_enqueue_script( 'pdfjs-worker', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js', array(), null, true );
+    
+    //handle custom js
+    $script_handle = 'custom-menu-js';
+    wp_enqueue_script($script_handle, get_template_directory_uri() . '/js/custom.js', array('pdfjs', 'pdfjs-worker'), null, true );
+    
+    //handle menu posts
+    $args = array(
+      'post_type' => 'menu', // 'menu' is the post type
+      'posts_per_page' => -1, // Get all menu posts
+    );
+    $menu_posts = get_posts($args);
+    
+    // Map the data
+    $menus_data = array_map(function($post) {
+      return array(
+        'title' => get_the_title($post),
+        'slug' => get_post_field('post_name', $post->ID),
+        'file_url' => get_field('menu_file', $post->ID),
+        'position' => get_field('order_position', $post->ID),
+        'active' => get_field('active', $post->ID),
+      );
+    }, $menu_posts);
+    
+    //handle other data injections
+    $inject_data = array(
+      'themeUrl' => get_template_directory_uri(),
+      'menuData' => $menus_data
+    );
+    
+    wp_localize_script($script_handle, 'customData', $inject_data);
   }
 }
 add_action('wp_enqueue_scripts', 'my_custom_assets');
