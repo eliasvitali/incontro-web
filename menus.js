@@ -1,7 +1,7 @@
-import { getDocument, GlobalWorkerOptions } from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
 
+const pdfjsLib = window['pdfjs-dist/build/pdf'];
 // Set the worker source
-GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.mjs";
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
 const menuImagesContainer = document.getElementById('menu-images');
 const menuToggleGroup = document.getElementById("menus-toggle-group");
@@ -46,7 +46,7 @@ const displayPDF = async (pdfUrl) => {
   disableMenuToggles(true);
   
   try {
-    const pdf = await getDocument(pdfUrl).promise;
+    const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
 
     for (let i = 1; i <= pdf.numPages; i++) {
       const page = await pdf.getPage(i);
