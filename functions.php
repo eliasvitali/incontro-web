@@ -4,8 +4,11 @@
 function my_custom_assets() {
   // Enqueue the stylesheet
   wp_enqueue_style('main-styles', get_template_directory_uri() . '/style.css', array(), null, 'all');
-
-  // Enqueue custom JS file (if you have one)
+  
+  if (is_page_template('template-gallery.php')) {
+    wp_enqueue_script('custom-gallery-js', get_template_directory_uri() . '/js/gallery-custom.js', array(), null, true );
+  }
+  
   if (is_page_template('template-menus.php')) {
 
     //handle pdfjs stuff
