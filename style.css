@@ -224,6 +224,115 @@ a.text {
   text-decoration: underline;
 }
 
+input[type="text"],
+.item-list .forminator-ui.forminator-custom-form[data-design="flat"] .forminator-input {
+  border-radius: 1em;
+  padding-top: var(--padding-s);
+  padding-bottom: var(--padding-s);
+}
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-error-message {
+  padding: var(--padding-xs) var(--padding-s);
+  border-radius: 1em;
+  background-color: var(--colour-dark-yellow);
+  color: black;
+  font-size: 0.7em;
+}
+
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-label {
+  font-size: 0.8em;
+}
+
+#ui-datepicker-div.ui-datepicker.forminator-calendar--flat {
+  border-radius: 1em;
+  overflow: hidden;
+  padding: 0;
+  margin-top: 1px;
+  background-color: var(--colour-white) !important;
+  border: var(--line);
+}
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat::before {
+  background-color: var(--colour-white);
+}
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat .ui-datepicker-header .ui-corner-all {
+  background-color: var(--colour-dark-yellow);
+  color: var(--colour-text);
+}
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat .ui-datepicker-header .ui-datepicker-title select {
+  background-color: transparent;
+  color: var(--colour-text);
+  border: var(--line);
+}
+#ui-datepicker-div.ui-datepicker.forminator-calendar--flat .ui-datepicker-header .ui-datepicker-title select {
+  border: var(--line);
+  border-radius: 1em;
+  border-width: 1px;
+  border-style: solid;
+}
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat .ui-datepicker-calendar tbody td a.ui-state-default {
+  background-color: var(--colour-white);
+  color: var(--colour-text);
+}
+#ui-datepicker-div.ui-datepicker.forminator-calendar--flat .ui-datepicker-calendar tbody tr td a {
+  border-radius: 2em;
+}
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-highlight {
+  background-color: rgba(0,0,0,0.07);
+  color: var(--colour-text);
+}
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-highlight.ui-state-active,
+#ui-datepicker-div.forminator-custom-form-4841.forminator-calendar--flat .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-active {
+  background-color: var(--colour-dark-yellow);
+  color: var(--colour-text);
+}
+
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-select2 + .forminator-select .selection .select2-selection--single[role="combobox"] {
+  background-color: var(--colour-white);
+  border-radius: 1em;
+  padding: var(--padding-xxs);
+}
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-select2 + .forminator-select .selection .select2-selection--single[role="combobox"]:hover,
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-select2 + .forminator-select.select2-container--open .selection .select2-selection--single[role="combobox"] {
+  background-color: var(--colour-white);
+}
+
+.select2-container.forminator-select.forminator-select-dropdown-container--open .forminator-select-dropdown.forminator-dropdown--flat {
+  border-radius: 1em;
+  overflow: hidden;
+  border: var(--line);
+}
+.select2-container.forminator-select-dropdown-container--open .forminator-custom-form-4841.forminator-dropdown--flat {
+  background-color: var(--colour-white);
+}
+.select2-container.forminator-select-dropdown-container--open .forminator-custom-form-4841.forminator-dropdown--flat .select2-results .select2-results__options .select2-results__option.select2-results__option--selected {
+  background-color: var(--colour-dark-yellow);
+  color: var(--colour-text);
+}
+
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-checkbox .forminator-checkbox-box {
+  background-color: var(--colour-white);
+  color: var(--colour-text);
+  padding: var(--padding-s);
+  border-radius: 0.4em;
+}
+.item-list .forminator-ui#forminator-module-4841.forminator-design--flat .forminator-checkbox input:checked + .forminator-checkbox-box {
+  background-color: var(--colour-white);
+}
+.item-list #forminator-module-4841.forminator-design--flat .forminator-has_error .forminator-checkbox span[aria-hidden] {
+  background-color: var(--colour-white);
+}
+.item-list .forminator-ui.forminator-custom-form[data-design="flat"] .forminator-button {
+  background-color: var(--colour-white);
+  border-radius: 6em;
+  padding: var(--padding-s);
+  border: var(--line);
+}
+.item-list .forminator-ui.forminator-custom-form[data-design="flat"] .forminator-button:hover {
+  box-shadow: unset;
+}
+.meta-input {
+  display: none;
+}
+
 /* ________________LAYOUT TOOLS__________________ */
 
 .item-row {
