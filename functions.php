@@ -62,3 +62,25 @@ function my_theme_setup() {
   ));
 }
 add_action('after_setup_theme', 'my_theme_setup');
+
+add_action('template_redirect', 'add_unique_id_to_reserve_page');
+
+function add_unique_id_to_reserve_page() {
+  if (is_page('reserve')) {
+    // Check if the unique ID is already present to avoid endless redirects
+    if (!isset($_GET['request_id'])) {
+      // Generate a unique time-based ID
+      $unique_id = str_replace('.', '', uniqid('', true));
+
+      // Get the current page URL
+      $current_url = home_url(add_query_arg(null, null)); // Keeps existing query params
+
+      // Append the unique_id to the URL
+      $redirect_url = add_query_arg('request_id', $unique_id, $current_url);
+
+      // Redirect to the new URL with the unique ID
+      wp_redirect($redirect_url);
+      exit;
+    }
+  }
+}
