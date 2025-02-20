@@ -34,14 +34,12 @@
         <?php endif; ?>
       </div>
     <?php endif; ?>
-    <nav aria-label="primary">
-      <a href="<?php echo home_url(); ?>" class="logo item-row center-vertical">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="two people greeting each other" />
-        <img class="logo-text" src="<?php echo get_template_directory_uri(); ?>/img/logo-text.svg" />
-      </a>
-      <button class="primary hero">
-        <p class="subheading-large">Reserve</p>
-      </button>
-    </nav>
-    <?php get_template_part('partials/divider'); ?>
+    <?php
+      if (is_front_page()) {
+        get_template_part('partials/hero-nav');
+      }
+      else {
+        get_template_part('partials/nav');
+      }
+    ?>
   </header>
