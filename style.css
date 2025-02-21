@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Rethink+Sans:wght@400..800&family=Yusei+Magic&display=swap');
 
 :root {
   --colour-black: black;
@@ -13,8 +13,9 @@
   --colour-text: black;
   
   --heading: 'Yusei Magic', sans-serif;
-  --subheading: "inter", sans-serif;
-  --content: sans-serif;
+  --subheading: "Rethink Sans", sans-serif;
+  --content: "Rethink Sans", sans-serif;
+  --quote: "Chango", sans-serif;
   
   --bold: 800;
   --semi-bold: 500;
@@ -91,7 +92,7 @@ pre {
   color: var(--colour-text);
 }
 .heading-small {
-  font: var(--regular) 1.125em/var(--linespace) var(--heading);
+  font: var(--regular) 1.125em/var(--linespace) var(--sub-heading);
   color: var(--colour-text);
 }
 .subheading-large {
@@ -106,6 +107,10 @@ pre {
 .subheading-medium {
   font: 700 0.8em/var(--linespace) var(--subheading);
   color: var(--colour-text);
+}
+
+.scale-width-font {
+  font-size: clamp(0.8em, 3.4vw, 1.6em);;
 }
 
 .spaced {
@@ -126,14 +131,10 @@ pre {
 
 body {
   background-color: var(--colour-body);
-  /* background-image: url('img/logo.png');
-  background-repeat: repeat;
-  background-size: 17em 17em;
-  background-blend-mode: soft-light; */
 }
 
 main {
-  max-width: 76rem;
+  max-width: 80rem;
   margin: 0 auto;
 }
 main.full-width {
@@ -141,7 +142,7 @@ main.full-width {
 }
 
 .page-max-width {
-  max-width: 76rem;
+  max-width: 80rem;
   margin: 0 auto;
 }
 
@@ -160,7 +161,7 @@ nav.hero[aria-label="primary"] {
   position: absolute;
   z-index: 3;
   width: 100%;
-  grid-template-columns: auto min-content auto;
+  grid-template-columns: 1fr min-content 1fr;
   gap: clamp(var(--gap-s), 6%, 10em);
   top: 1.7rem;
   font-size: 1em;
@@ -455,6 +456,9 @@ input[type="text"],
 .padding {
   padding: var(--padding-r);
 }
+.padding-small {
+  padding: var(--padding-m);
+}
 .padding-right {
   padding-right: var(--padding-s);
 }
@@ -511,31 +515,27 @@ nav.hero .logo img.logo-text {
   height: clamp(45vh, 50vw, 30em);
   padding: var(--padding-xxs);
   padding-bottom: 0;
-  border-bottom: var(--line);
-  border-bottom-width: 2px;
   position: relative;
 }
 .landing-hero .landing-hero-inner {
   background-color: var(--colour-white);
-  padding: var(--padding-s);
-  padding-bottom: 0;
+  padding: 0.8em;
   border: var(--line);
-  border-bottom: unset;
-  border-radius: 2.5em 2.5em 0 0;
+  border-radius: 2.5em;
   position: relative;
   overflow: hidden;
 }
 .landing-hero .landing-hero-inner::before {
   content: "";
   position: absolute;
-  left: -10px;
-  right: -10px;
+  left: -16px;
+  right: -16px;
   top: -10px;
   bottom: -10px;
   background: transparent;
-  box-shadow: inset 0 0 4px 8px var(--colour-white);
+  box-shadow: inset 0 0 3px 9px var(--colour-white);
   z-index: 2;
-  border-radius: 4.1em 4.1em 0 0;
+  border-radius: 4.1em;
 }
 .landing-hero .landing-hero-inner .hero-img-wrapper {
   position: relative;
@@ -543,10 +543,8 @@ nav.hero .logo img.logo-text {
   display: flex;
   height: 100%;
   border: var(--line);
-  padding: var(--padding-xxs);
-  padding-bottom: 0;
-  border-radius: 1.7em 1.7em 0 0;
-  border-bottom: unset;
+  padding: 2px;
+  border-radius: 1.7em;
 }
 .landing-hero .landing-hero-inner .hero-img-wrapper > div {
   position: absolute;
@@ -569,8 +567,7 @@ nav.hero .logo img.logo-text {
   object-position: center;
   border: var(--line);
   border-width: 2px;
-  border-radius: 1.5em 1.5em 0 0;
-  border-bottom: unset;
+  border-radius: 1.6em;
 }
 
 .landing-hero .divider-banner {
@@ -580,10 +577,14 @@ nav.hero .logo img.logo-text {
   top: 0;
   overflow: visible;
 }
+.landing-hero .divider-banner:nth-child(3) {
+  top: unset;
+  bottom: 0;
+}
 .landing-hero .divider-banner .divider-inner {
   border: unset;
   background-color: transparent;
-  padding: var(--padding-xxs) var(--padding-m);
+  padding: 0.1em 0;
 }
 .landing-hero .landing-hero-inner > :last-child.divider-banner.vert-banner {
   left: unset;
@@ -592,13 +593,13 @@ nav.hero .logo img.logo-text {
 .landing-hero .divider-banner.vert-banner {
   height: 100%;
   width: auto;
-  padding: 0 1px;
+  padding: 0;
 }
 .landing-hero .divider-banner.vert-banner .divider-inner {
   flex-direction: column;
   min-height: 100%;
-  padding: var(--padding-s) var(--padding-xxs);
-  margin-top: 0.3em;
+  padding: 0 0.1em;
+  margin-top: 1.3em;
 }
 .landing-hero .divider-banner.vert-banner .banner-group {
   flex-direction: column;
@@ -622,9 +623,13 @@ nav.hero .logo img.logo-text {
 }
 .landing-hero .divider-banner.vert-banner [data-icon="fork-vert"] {
   width: 0.4em;
+  transform: scaleY(-1);
 }
 
 .landing-hero .landing-hero-inner > :last-child.divider-banner.vert-banner img {
+  transform: rotateZ(180deg);
+}
+.landing-hero .landing-hero-inner .divider-banner:nth-child(3) img {
   transform: rotateZ(180deg);
 }
 
@@ -680,6 +685,16 @@ header .divider-banner {
   background-position: left;
   background-size: cover;
   border-left: var(--line);
+}
+
+.quote {
+  border-bottom: var(--line);
+}
+.quote .heading-medium {
+  font-family: var(--quote);
+}
+.quote img {
+  width: 2em;
 }
 
 .nav-icon {
@@ -841,10 +856,10 @@ nav[aria-label="secondary"] a:hover {
   }
 }
 
-@media screen and (min-width: 76rem) {
-  main {
-    /* border-left: var(--line);
-    border-right: var(--line); */
+@media screen and (min-width: 80rem) {
+  main, footer {
+    border-left: var(--line);
+    border-right: var(--line);
   }
   .gallery {
     grid-template-columns: 1fr 1fr 1fr;

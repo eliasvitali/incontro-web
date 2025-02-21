@@ -28,6 +28,7 @@
       <img src="<?php echo get_template_directory_uri(); ?>/img/food1.jpg" />
     </div>
     <?php get_template_part('partials/divider'); ?>
+    <?php get_template_part('partials/divider'); ?>
     <?php get_template_part('partials/divider-vert'); ?>
     <?php get_template_part('partials/divider-vert'); ?>
   </div>

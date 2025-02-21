@@ -10,7 +10,13 @@ get_header();
   $telephone_link = get_field('restaurant_telephone_link');
   $hours = get_field('restaurant_hours');
 ?>
-<main class="full-width">
+<main>
+  <?php get_template_part('partials/hero-nav'); ?>
+  <div class="quote padding-small item-row large-gap center-horizontal center-vertical">
+    <img src="<?php echo get_template_directory_uri(); ?>/img/art-4.svg" />
+    <p class="heading-medium scale-width-font center">“Italienisch einmal anders!”</p>
+    <img src="<?php echo get_template_directory_uri(); ?>/img/art-1.svg" />
+  </div>
   <div class="two-pane">
     <nav aria-label="secondary" class="dark-bg padding">
       <ul class="item-list xs-gap align-items-start">

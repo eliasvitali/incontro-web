@@ -35,10 +35,7 @@
       </div>
     <?php endif; ?>
     <?php
-      if (is_front_page()) {
-        get_template_part('partials/hero-nav');
-      }
-      else {
+      if (!is_front_page()) {
         get_template_part('partials/nav');
       }
     ?>

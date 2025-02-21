@@ -1,4 +1,4 @@
-<footer class="padding">
+<footer class="padding page-max-width">
   <div class="item-row center-vertical center-horizontal">
     <a href="<?php echo get_permalink(get_page_by_path('impressum')); ?>" class="text">
       <p class="subheading-medium weight-light text-secondary">Impressum</p>
